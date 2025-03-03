@@ -13,7 +13,7 @@ namespace MHRSSistemi.UI.Models
 
         public override string ToString()
         {
-            return $"Bölüm Adı: {BolumAdi} - Bölüm Açıklaması: {BolumAciklamasi}";
+            return $"Bölüm Adı: {BolumAdi} : Bölüm Açıklaması: {BolumAciklamasi}";
         }
     }
 }

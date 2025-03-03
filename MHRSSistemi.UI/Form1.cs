@@ -17,7 +17,6 @@ public partial class Form1 : Form
             MessageBox.Show("Bölüm adý veya açýklamasý boþ olamaz!");
             return;
         }
-
         try
         {
             var bolum = new Bolum
@@ -30,7 +29,6 @@ public partial class Form1 : Form
 
             lstbBolumler.Items.Add(bolum);
             MessageBox.Show("Bölüm baþarýyla eklenmiþtir.");
-
         }
         catch (Exception ex)
         {
@@ -68,5 +66,19 @@ public partial class Form1 : Form
 
         Temizle();
         MessageBox.Show("Bölüm baþarýyla güncellendi.");
+    }
+
+    private void btnGec_Click(object sender, EventArgs e)
+    {
+        Bolum[] bolumDizisi = new Bolum[0];
+
+        foreach (Bolum item in lstbBolumler.Items)
+        {
+            Array.Resize(ref bolumDizisi, bolumDizisi.Length + 1);
+            bolumDizisi[bolumDizisi.Length - 1] = item;
+        }
+
+        Form2 form2 = new Form2(bolumDizisi);
+        form2.Show();
     }
 }
