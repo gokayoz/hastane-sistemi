@@ -118,6 +118,7 @@
             btnGec.TabIndex = 0;
             btnGec.Text = ">>>>>>>>>>>>>>>>>>>>>>";
             btnGec.UseVisualStyleBackColor = true;
+            btnGec.Click += btnGec_Click;
             // 
             // Form1
             // 
