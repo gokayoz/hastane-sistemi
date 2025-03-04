@@ -1,6 +1,6 @@
 ﻿namespace MHRSSistemi.UI
 {
-    partial class Form1
+    partial class FRMBolum
     {
         /// <summary>
         ///  Required designer variable.

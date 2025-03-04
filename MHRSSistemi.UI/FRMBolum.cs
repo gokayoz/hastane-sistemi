@@ -2,10 +2,10 @@ using MHRSSistemi.UI.Models;
 
 namespace MHRSSistemi.UI;
 
-public partial class Form1 : Form
+public partial class FRMBolum : Form
 {
     List<Bolum> bolumler = new();
-    public Form1()
+    public FRMBolum()
     {
         InitializeComponent();
     }
@@ -56,7 +56,7 @@ public partial class Form1 : Form
             MessageBox.Show("Güncellemek istediðiniz bölümü seçiniz!");
             return;
         }
-        Bolum seciliBolum = (Bolum)lstbBolumler.SelectedItem;
+        Bolum seciliBolum = lstbBolumler.SelectedItem as Bolum;
 
         seciliBolum.BolumAdi = txtBolumAdi.Text;
         seciliBolum.BolumAciklamasi = txtBolumAciklamasi.Text;
@@ -72,13 +72,13 @@ public partial class Form1 : Form
     {
         Bolum[] bolumDizisi = new Bolum[0];
 
-        foreach (Bolum item in lstbBolumler.Items)
+        foreach (Bolum bolum in lstbBolumler.Items)
         {
             Array.Resize(ref bolumDizisi, bolumDizisi.Length + 1);
-            bolumDizisi[bolumDizisi.Length - 1] = item;
+            bolumDizisi[bolumDizisi.Length - 1] = bolum;
         }
 
-        Form2 form2 = new Form2(bolumDizisi);
+        FRMDoktor form2 = new FRMDoktor(bolumDizisi);
         form2.Show();
     }
 }
