@@ -12,5 +12,7 @@ namespace MHRSSistemi.UI.Models
         public string HastaSikayeti { get; set; }
 
         public Doktor Doktor { get; set; }
+
+        public override string ToString() => $"{HastaAdSoyadi}";
     }
 }

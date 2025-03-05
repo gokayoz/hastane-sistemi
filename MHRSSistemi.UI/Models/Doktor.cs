@@ -36,9 +36,6 @@ namespace MHRSSistemi.UI.Models
 
         public Bolum Bolum { get; set; }
 
-        public override string ToString()
-        {
-            return $"Doktor Adı: {DoktorAdSoyadi} : Doktor Telefonu: {DoktorTelefonu}";
-        }
+        public override string ToString() => $"Doktor Adı: {DoktorAdSoyadi} : Doktor Telefonu: {DoktorTelefonu}";
     }
 }

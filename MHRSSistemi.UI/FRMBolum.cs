@@ -79,15 +79,15 @@ public partial class FRMBolum : Form
 
     private void btnGec_Click(object sender, EventArgs e)
     {
-        Bolum[] bolumDizisi = new Bolum[0];
+        Bolum[] bolumler = new Bolum[0];
 
         foreach (Bolum bolum in lstbBolumler.Items)
         {
-            Array.Resize(ref bolumDizisi, bolumDizisi.Length + 1);
-            bolumDizisi[bolumDizisi.Length - 1] = bolum;
+            Array.Resize(ref bolumler, bolumler.Length + 1);
+            bolumler[bolumler.Length - 1] = bolum;
         }
 
-        FRMDoktor form2 = new FRMDoktor(bolumDizisi);
+        FRMDoktor form2 = new FRMDoktor(bolumler);
         form2.Show();
     }
 }

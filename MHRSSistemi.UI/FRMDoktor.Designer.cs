@@ -90,6 +90,7 @@
             btnGec.TabIndex = 4;
             btnGec.Text = ">>>>>>>>>>>>>>>>>>>>>>";
             btnGec.UseVisualStyleBackColor = true;
+            btnGec.Click += btnGec_Click;
             // 
             // btnGuncelle
             // 
