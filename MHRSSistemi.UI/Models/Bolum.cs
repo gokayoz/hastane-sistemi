@@ -34,9 +34,6 @@ namespace MHRSSistemi.UI.Models
             }
         }
 
-        public override string ToString()
-        {
-            return $"Bölüm Adı: {BolumAdi} : Bölüm Açıklaması: {BolumAciklamasi}";
-        }
+        public override string ToString() => $"Bölüm Adı: {BolumAdi} : Bölüm Açıklaması: {BolumAciklamasi}";
     }
 }

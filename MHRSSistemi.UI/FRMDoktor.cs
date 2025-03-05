@@ -16,7 +16,7 @@ namespace MHRSSistemi.UI
         private void Form2_Load(object sender, EventArgs e)
         {
             cmbBolumler.DataSource = bolumDizisi;
-            mtxtTelefonu.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
+            mtxtTelefonu.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals; // kullanıldığında yalnızca girilen rakamlar döner
         }
 
         private void btnEkle_Click(object sender, EventArgs e)
@@ -86,6 +86,20 @@ namespace MHRSSistemi.UI
             {
                 MessageBox.Show($"Bir hata oluştu: {ex.Message}", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void btnGec_Click(object sender, EventArgs e)
+        {
+            Doktor[] doktorlar = new Doktor[0];
+
+            foreach (Doktor doktor in lstbDoktorlar.Items)
+            {
+                Array.Resize(ref doktorlar, doktorlar.Length + 1);
+                doktorlar[doktorlar.Length - 1] = doktor;
+            }
+
+            FRMHasta form3 = new FRMHasta(doktorlar);
+            form3.Show();
         }
     }
 }
