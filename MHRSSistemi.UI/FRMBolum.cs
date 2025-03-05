@@ -1,10 +1,12 @@
 using MHRSSistemi.UI.Models;
+using System.Text.RegularExpressions;
 
 namespace MHRSSistemi.UI;
 
 public partial class FRMBolum : Form
 {
     List<Bolum> bolumler = new();
+
     public FRMBolum()
     {
         InitializeComponent();
@@ -12,60 +14,67 @@ public partial class FRMBolum : Form
 
     private void btnEkle_Click(object sender, EventArgs e)
     {
-        if (string.IsNullOrWhiteSpace(txtBolumAdi.Text) || string.IsNullOrWhiteSpace(txtBolumAciklamasi.Text))
-        {
-            MessageBox.Show("Bölüm adý veya açýklamasý boþ olamaz!");
-            return;
-        }
         try
         {
-            var bolum = new Bolum
+            Bolum bolum = new Bolum
             {
-                BolumAdi = txtBolumAdi.Text,
-                BolumAciklamasi = txtBolumAciklamasi.Text
+                BolumAdi = txtBolumAdi.Text.Trim(),
+                BolumAciklamasi = txtBolumAciklamasi.Text.Trim()
             };
-            bolumler.Add(bolum);
-            Temizle();
 
             lstbBolumler.Items.Add(bolum);
-            MessageBox.Show("Bölüm baþarýyla eklenmiþtir.");
+            MessageBox.Show("Bölüm baþarýyla eklendi.", "Baþarýlý", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            bolumler.Add(bolum);
+
+            Temizle();
         }
         catch (Exception ex)
         {
-            MessageBox.Show(ex.Message);
+            MessageBox.Show($"Bir hata oluþtu:\n{ex.Message}", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
+
     private void Temizle()
     {
         txtBolumAciklamasi.Text = txtBolumAdi.Text = string.Empty;
     }
+
     private void btnSil_Click(object sender, EventArgs e)
     {
         if (lstbBolumler.SelectedItem == null)
         {
-            MessageBox.Show("Lüttfen bölüm seçiniz!");
+            MessageBox.Show("Lütfen silmek için bir bölüm seçiniz!", "Uyarý", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             return;
         }
+
         lstbBolumler.Items.Remove(lstbBolumler.SelectedItem);
-        MessageBox.Show("Bölüm baþarýyla silindi.");
+        MessageBox.Show("Bölüm baþarýyla silindi.", "Baþarýlý", MessageBoxButtons.OK, MessageBoxIcon.Information);
     }
+
     private void btnGuncelle_Click(object sender, EventArgs e)
     {
         if (lstbBolumler.SelectedItem == null)
         {
-            MessageBox.Show("Güncellemek istediðiniz bölümü seçiniz!");
+            MessageBox.Show("Güncellemek için bir bölüm seçiniz!", "Uyarý", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             return;
         }
-        Bolum seciliBolum = lstbBolumler.SelectedItem as Bolum;
+        try
+        {
+            Bolum seciliBolum = lstbBolumler.SelectedItem as Bolum;
 
-        seciliBolum.BolumAdi = txtBolumAdi.Text;
-        seciliBolum.BolumAciklamasi = txtBolumAciklamasi.Text;
+            seciliBolum.BolumAdi = txtBolumAdi.Text;
+            seciliBolum.BolumAciklamasi = txtBolumAciklamasi.Text;
 
-        int index = lstbBolumler.SelectedIndex;
-        lstbBolumler.Items[index] = seciliBolum;
+            int index = lstbBolumler.SelectedIndex;
+            lstbBolumler.Items[index] = seciliBolum;
 
-        Temizle();
-        MessageBox.Show("Bölüm baþarýyla güncellendi.");
+            Temizle();
+            MessageBox.Show("Bölüm baþarýyla güncellendi.", "Baþarýlý", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+        catch (Exception ex)
+        {
+            MessageBox.Show("Bölüm bilgileri boþ olamaz ve sadece harf içermelidir!", "Uyarý", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
     }
 
     private void btnGec_Click(object sender, EventArgs e)

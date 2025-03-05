@@ -41,7 +41,7 @@
             // 
             // btnEkle
             // 
-            btnEkle.Location = new Point(216, 142);
+            btnEkle.Location = new Point(191, 139);
             btnEkle.Name = "btnEkle";
             btnEkle.Size = new Size(110, 30);
             btnEkle.TabIndex = 0;
@@ -51,7 +51,7 @@
             // 
             // txtBolumAdi
             // 
-            txtBolumAdi.Location = new Point(183, 23);
+            txtBolumAdi.Location = new Point(158, 20);
             txtBolumAdi.Name = "txtBolumAdi";
             txtBolumAdi.Size = new Size(649, 27);
             txtBolumAdi.TabIndex = 1;
@@ -59,7 +59,7 @@
             // lstbBolumler
             // 
             lstbBolumler.FormattingEnabled = true;
-            lstbBolumler.Location = new Point(144, 186);
+            lstbBolumler.Location = new Point(119, 183);
             lstbBolumler.Name = "lstbBolumler";
             lstbBolumler.Size = new Size(688, 164);
             lstbBolumler.TabIndex = 2;
@@ -67,7 +67,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(95, 26);
+            label1.Location = new Point(70, 23);
             label1.Name = "label1";
             label1.Size = new Size(82, 20);
             label1.TabIndex = 3;
@@ -75,7 +75,7 @@
             // 
             // txtBolumAciklamasi
             // 
-            txtBolumAciklamasi.Location = new Point(183, 62);
+            txtBolumAciklamasi.Location = new Point(158, 59);
             txtBolumAciklamasi.Multiline = true;
             txtBolumAciklamasi.Name = "txtBolumAciklamasi";
             txtBolumAciklamasi.Size = new Size(649, 60);
@@ -84,7 +84,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(47, 79);
+            label2.Location = new Point(22, 76);
             label2.Name = "label2";
             label2.Size = new Size(130, 20);
             label2.TabIndex = 3;
@@ -92,7 +92,7 @@
             // 
             // btnSil
             // 
-            btnSil.Location = new Point(431, 142);
+            btnSil.Location = new Point(406, 139);
             btnSil.Name = "btnSil";
             btnSil.Size = new Size(110, 30);
             btnSil.TabIndex = 0;
@@ -102,7 +102,7 @@
             // 
             // btnGuncelle
             // 
-            btnGuncelle.Location = new Point(665, 142);
+            btnGuncelle.Location = new Point(640, 139);
             btnGuncelle.Name = "btnGuncelle";
             btnGuncelle.Size = new Size(110, 30);
             btnGuncelle.TabIndex = 0;
@@ -112,7 +112,7 @@
             // 
             // btnGec
             // 
-            btnGec.Location = new Point(144, 375);
+            btnGec.Location = new Point(119, 372);
             btnGec.Name = "btnGec";
             btnGec.Size = new Size(688, 29);
             btnGec.TabIndex = 0;
@@ -120,11 +120,11 @@
             btnGec.UseVisualStyleBackColor = true;
             btnGec.Click += btnGec_Click;
             // 
-            // Form1
+            // FRMBolum
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(982, 434);
+            ClientSize = new Size(931, 421);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(txtBolumAciklamasi);
@@ -134,7 +134,7 @@
             Controls.Add(btnGuncelle);
             Controls.Add(btnSil);
             Controls.Add(btnEkle);
-            Name = "Form1";
+            Name = "FRMBolum";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Bölüm Ekranı";
             ResumeLayout(false);
