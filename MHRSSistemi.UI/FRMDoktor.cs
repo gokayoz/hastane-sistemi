@@ -5,8 +5,8 @@ namespace MHRSSistemi.UI
     public partial class FRMDoktor : Form
     {
         private Bolum[] bolumDizisi;
-
         List<Doktor> doktorlar = new();
+
         public FRMDoktor(Bolum[] bolumDizisi)
         {
             InitializeComponent();
@@ -16,68 +16,76 @@ namespace MHRSSistemi.UI
         private void Form2_Load(object sender, EventArgs e)
         {
             cmbBolumler.DataSource = bolumDizisi;
+            mtxtTelefonu.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
         }
 
         private void btnEkle_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtDoktorBilgileri.Text))
-            {
-                MessageBox.Show("Doktor bilgileri boş olamaz!");
-                return;
-            }
             try
             {
-                var doktor = new Doktor
+                Doktor doktor = new Doktor
                 {
                     DoktorAdSoyadi = txtDoktorBilgileri.Text,
                     Bolum = (Bolum)cmbBolumler.SelectedItem,
                     DoktorTelefonu = mtxtTelefonu.Text
                 };
+
                 doktorlar.Add(doktor);
                 Temizle();
 
                 lstbDoktorlar.Items.Add(doktor);
-                MessageBox.Show("Doktor başarıyla eklenmiştir.");
+                MessageBox.Show("Doktor başarıyla eklendi!", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show($"Bir hata oluştu: {ex.Message}", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
         private void Temizle()
         {
             txtDoktorBilgileri.Text = string.Empty;
             mtxtTelefonu.Text = string.Empty;
-        }
-        private void btnGuncelle_Click_1(object sender, EventArgs e)
-        {
-            if (lstbDoktorlar.SelectedItem == null)
-            {
-                MessageBox.Show("Güncellemek istediğiniz doktoru seçiniz!");
-                return;
-            }
-            Doktor seciliDoktor = lstbDoktorlar.SelectedItem as Doktor;
-
-            seciliDoktor.DoktorAdSoyadi = txtDoktorBilgileri.Text;
-            seciliDoktor.DoktorTelefonu = mtxtTelefonu.Text;
-            seciliDoktor.Bolum.BolumAdi = cmbBolumler.SelectedItem.ToString();
-
-            int index = lstbDoktorlar.SelectedIndex;
-            lstbDoktorlar.Items[index] = seciliDoktor;
-
-            Temizle();
-            MessageBox.Show("Doktor başarıyla güncellendi.");
         }
 
         private void btnSil_Click(object sender, EventArgs e)
         {
             if (lstbDoktorlar.SelectedItem == null)
             {
-                MessageBox.Show("Lüttfen bölüm seçiniz!");
+                MessageBox.Show("Lütfen silmek için bir doktor seçiniz!", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+
             lstbDoktorlar.Items.Remove(lstbDoktorlar.SelectedItem);
-            MessageBox.Show("Doktor başarıyla silindi.");
+            MessageBox.Show("Doktor başarıyla silindi!", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void btnGuncelle_Click(object sender, EventArgs e)
+        {
+            if (lstbDoktorlar.SelectedItem == null)
+            {
+                MessageBox.Show("Lütfen güncellemek için bir doktor seçiniz!", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            try
+            {
+                Doktor seciliDoktor = lstbDoktorlar.SelectedItem as Doktor;
+
+                seciliDoktor.DoktorAdSoyadi = txtDoktorBilgileri.Text;
+                seciliDoktor.DoktorTelefonu = mtxtTelefonu.Text;
+                seciliDoktor.Bolum = (Bolum)cmbBolumler.SelectedItem;
+
+                int index = lstbDoktorlar.SelectedIndex;
+                lstbDoktorlar.Items[index] = seciliDoktor;
+
+                Temizle();
+                MessageBox.Show("Doktor başarıyla güncellendi!", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Bir hata oluştu: {ex.Message}", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

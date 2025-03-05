@@ -44,7 +44,7 @@
             // cmbBolumler
             // 
             cmbBolumler.FormattingEnabled = true;
-            cmbBolumler.Location = new Point(158, 110);
+            cmbBolumler.Location = new Point(217, 104);
             cmbBolumler.Name = "cmbBolumler";
             cmbBolumler.Size = new Size(358, 28);
             cmbBolumler.TabIndex = 0;
@@ -52,7 +52,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(31, 113);
+            label2.Location = new Point(85, 107);
             label2.Name = "label2";
             label2.Size = new Size(103, 20);
             label2.TabIndex = 11;
@@ -61,7 +61,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(21, 36);
+            label1.Location = new Point(75, 30);
             label1.Name = "label1";
             label1.Size = new Size(113, 20);
             label1.TabIndex = 12;
@@ -77,9 +77,9 @@
             // 
             // txtDoktorBilgileri
             // 
-            txtDoktorBilgileri.Location = new Point(158, 33);
+            txtDoktorBilgileri.Location = new Point(217, 27);
             txtDoktorBilgileri.Name = "txtDoktorBilgileri";
-            txtDoktorBilgileri.Size = new Size(649, 27);
+            txtDoktorBilgileri.Size = new Size(592, 27);
             txtDoktorBilgileri.TabIndex = 9;
             // 
             // btnGec
@@ -99,7 +99,7 @@
             btnGuncelle.TabIndex = 5;
             btnGuncelle.Text = "GÜNCELLE";
             btnGuncelle.UseVisualStyleBackColor = true;
-            btnGuncelle.Click += btnGuncelle_Click_1;
+            btnGuncelle.Click += btnGuncelle_Click;
             // 
             // btnSil
             // 
@@ -124,7 +124,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(15, 73);
+            label3.Location = new Point(69, 67);
             label3.Name = "label3";
             label3.Size = new Size(119, 20);
             label3.TabIndex = 12;
@@ -132,7 +132,7 @@
             // 
             // mtxtTelefonu
             // 
-            mtxtTelefonu.Location = new Point(158, 70);
+            mtxtTelefonu.Location = new Point(217, 64);
             mtxtTelefonu.Mask = "(999) 000-0000";
             mtxtTelefonu.Name = "mtxtTelefonu";
             mtxtTelefonu.Size = new Size(215, 27);
@@ -142,7 +142,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(932, 448);
+            ClientSize = new Size(932, 434);
             Controls.Add(mtxtTelefonu);
             Controls.Add(label2);
             Controls.Add(label3);
