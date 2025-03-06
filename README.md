@@ -1,1 +1,1 @@
-# MHRS Sistemi
+# Hastane Randevu Sistemi
