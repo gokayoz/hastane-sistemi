@@ -5,13 +5,10 @@ namespace MHRSSistemi.UI;
 
 public partial class FRMBolum : Form
 {
-    List<Bolum> bolumler = new();
-
     public FRMBolum()
     {
         InitializeComponent();
     }
-
     private void btnEkle_Click(object sender, EventArgs e)
     {
         try
@@ -24,8 +21,6 @@ public partial class FRMBolum : Form
 
             lstbBolumler.Items.Add(bolum);
             MessageBox.Show("Bölüm baþarýyla eklendi.", "Baþarýlý", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            bolumler.Add(bolum);
-
             Temizle();
         }
         catch (Exception ex)
@@ -33,7 +28,6 @@ public partial class FRMBolum : Form
             MessageBox.Show($"Bir hata oluþtu:\n{ex.Message}", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
-
     private void Temizle()
     {
         txtBolumAciklamasi.Text = txtBolumAdi.Text = string.Empty;
@@ -50,7 +44,6 @@ public partial class FRMBolum : Form
         lstbBolumler.Items.Remove(lstbBolumler.SelectedItem);
         MessageBox.Show("Bölüm baþarýyla silindi.", "Baþarýlý", MessageBoxButtons.OK, MessageBoxIcon.Information);
     }
-
     private void btnGuncelle_Click(object sender, EventArgs e)
     {
         if (lstbBolumler.SelectedItem == null)
@@ -76,7 +69,6 @@ public partial class FRMBolum : Form
             MessageBox.Show("Bölüm bilgileri boþ olamaz ve sadece harf içermelidir!", "Uyarý", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
     }
-
     private void btnGec_Click(object sender, EventArgs e)
     {
         Bolum[] bolumler = new Bolum[0];
@@ -88,6 +80,8 @@ public partial class FRMBolum : Form
         }
 
         FRMDoktor form2 = new FRMDoktor(bolumler);
-        form2.Show();
+        this.Hide();
+        form2.ShowDialog();
+        this.Show();
     }
 }

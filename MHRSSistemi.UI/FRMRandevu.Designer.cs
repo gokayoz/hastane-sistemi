@@ -42,6 +42,7 @@
             btnDokumanOlustur.TabIndex = 0;
             btnDokumanOlustur.Text = "Döküman Oluştur";
             btnDokumanOlustur.UseVisualStyleBackColor = true;
+            btnDokumanOlustur.Click += btnDokumanOlustur_Click;
             // 
             // dtpBaslangic
             // 
