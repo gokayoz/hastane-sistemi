@@ -5,8 +5,6 @@ namespace MHRSSistemi.UI
     public partial class FRMDoktor : Form
     {
         private Bolum[] bolumDizisi;
-        List<Doktor> doktorlar = new();
-
         public FRMDoktor(Bolum[] bolumDizisi)
         {
             InitializeComponent();
@@ -30,10 +28,8 @@ namespace MHRSSistemi.UI
                     DoktorTelefonu = mtxtTelefonu.Text
                 };
 
-                doktorlar.Add(doktor);
-                Temizle();
-
                 lstbDoktorlar.Items.Add(doktor);
+                Temizle();
                 MessageBox.Show("Doktor başarıyla eklendi!", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
@@ -41,13 +37,11 @@ namespace MHRSSistemi.UI
                 MessageBox.Show($"Bir hata oluştu: {ex.Message}", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
         private void Temizle()
         {
             txtDoktorBilgileri.Text = string.Empty;
             mtxtTelefonu.Text = string.Empty;
         }
-
         private void btnSil_Click(object sender, EventArgs e)
         {
             if (lstbDoktorlar.SelectedItem == null)
@@ -67,7 +61,6 @@ namespace MHRSSistemi.UI
                 MessageBox.Show("Lütfen güncellemek için bir doktor seçiniz!", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-
             try
             {
                 Doktor seciliDoktor = lstbDoktorlar.SelectedItem as Doktor;
@@ -87,7 +80,6 @@ namespace MHRSSistemi.UI
                 MessageBox.Show($"Bir hata oluştu: {ex.Message}", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
         private void btnGec_Click(object sender, EventArgs e)
         {
             Doktor[] doktorlar = new Doktor[0];
@@ -99,7 +91,9 @@ namespace MHRSSistemi.UI
             }
 
             FRMHasta form3 = new FRMHasta(doktorlar);
-            form3.Show();
+            this.Hide();
+            form3.ShowDialog();
+            this.Show();
         }
     }
 }

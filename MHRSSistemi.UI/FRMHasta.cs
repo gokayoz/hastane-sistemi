@@ -12,7 +12,6 @@ namespace MHRSSistemi.UI
                 cmbDoktorAdSoyadi.Items.Add(doktor);
             }
         }
-
         public FRMHasta()
         {
             InitializeComponent();
@@ -45,12 +44,10 @@ namespace MHRSSistemi.UI
             };
 
             lstRandevular.Items.Add(randevu);
-
             Temizle();
 
             MessageBox.Show("Randevu başarıyla eklendi.");
         }
-
         private void Temizle()
         {
             txtHastaAdSoyadi.Text = txtHastaSikayeti.Text = string.Empty;
@@ -62,7 +59,9 @@ namespace MHRSSistemi.UI
             lstRandevular.Items.CopyTo(randevular, 0);
 
             FRMRandevu form4 = new FRMRandevu(randevular);
-            form4.Show();
+            this.Hide();
+            form4.ShowDialog();
+            this.Show();
         }
     }
 }
